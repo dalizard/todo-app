@@ -24,6 +24,6 @@ COPY / .
 
 RUN REPEATABLE yarn install
 
-RUN BACKGROUND yarn start
+RUN BACKGROUND yarn start --env=production
 
-EXPOSE WEBSITE localhost:8080
+EXPOSE WEBSITE localhost:3000

@@ -34,7 +34,7 @@ ENV NODE_OPTIONS=--max-old-space-size=8192
 
 COPY / .
 
-RUN REPEATABLE bash fast-git-clone.sh dalizard/todo-api.git /backend origin/master && \
+RUN REPEATABLE git clone https://github.com/dalizard/todo-api.git /backend && \
     ( pkill --full --exact "node /usr/share/yarn/bin/yarn.js start --host 0.0.0.0" || true; ) && \
     if [ "$BRANCH" = staging ]; then \
       export BACKEND_API_ENDPOINT=https://prod-staging.example.com/api; \
